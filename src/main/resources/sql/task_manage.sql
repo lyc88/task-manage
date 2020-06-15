@@ -1,11 +1,4 @@
 
-
-SET NAMES utf8mb4;
-SET FOREIGN_KEY_CHECKS = 0;
-
--- ----------------------------
--- Table structure for t_menu
--- ----------------------------
 DROP TABLE IF EXISTS `t_menu`;
 CREATE TABLE `t_menu` (
   `id` int(8) NOT NULL AUTO_INCREMENT COMMENT '菜单ID',
@@ -27,11 +20,11 @@ CREATE TABLE `t_menu` (
 -- Records of t_menu
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_menu` VALUES (1, '公共资源', '/publicResource', NULL, 0, 0, 99, NULL, NULL, NULL, NULL, 0);
-INSERT INTO `t_menu` VALUES (2, 'VIP资源', '/vipResource', NULL, 0, 0, 99, NULL, NULL, NULL, NULL, 0);
-INSERT INTO `t_menu` VALUES (3, '主页', '/home', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0);
-INSERT INTO `t_menu` VALUES (4, '公共权限请求按钮', '/test/public', NULL, 0, 1, 99, NULL, NULL, NULL, NULL, 0);
-INSERT INTO `t_menu` VALUES (5, 'VIP权限请求按钮', '/test/vip', NULL, 0, 1, 99, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `t_menu` VALUES (1, '跳转任务列表页面', '/index', NULL, 0, 0, 99, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `t_menu` VALUES (2, '跳转执行记录页面', '/taskrecords', NULL, 0, 0, 99, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `t_menu` VALUES (3, '跳转报错日志页面', '/taskerrors', NULL, 0, 0, 0, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `t_menu` VALUES (4, '跳转新增任务页面', '/addtask', NULL, 0, 1, 99, NULL, NULL, NULL, NULL, 0);
+INSERT INTO `t_menu` VALUES (5, '跳转编辑任务页面', '/updatetask', NULL, 0, 1, 99, NULL, NULL, NULL, NULL, 0);
 INSERT INTO `t_menu` VALUES (6, 'mian', '/main', NULL, 0, 0, 99, NULL, NULL, NULL, NULL, 0);
 COMMIT;
 
@@ -49,8 +42,9 @@ CREATE TABLE `t_role` (
 -- Records of t_role
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_role` VALUES (1, 'ROLE_USER');
-INSERT INTO `t_role` VALUES (2, 'ROLE_ADMIN');
+INSERT INTO `t_role` VALUES (1, 'ROLE_ADMIN');
+INSERT INTO `t_role` VALUES (2, 'ROLE_DEV');
+INSERT INTO `t_role` VALUES (3, 'ROLE_USER');
 COMMIT;
 
 -- ----------------------------
@@ -69,15 +63,22 @@ CREATE TABLE `t_role_menus` (
 -- ----------------------------
 BEGIN;
 INSERT INTO `t_role_menus` VALUES (1, 1, 1);
-INSERT INTO `t_role_menus` VALUES (2, 2, 1);
-INSERT INTO `t_role_menus` VALUES (3, 2, 2);
-INSERT INTO `t_role_menus` VALUES (4, 1, 3);
-INSERT INTO `t_role_menus` VALUES (5, 2, 3);
-INSERT INTO `t_role_menus` VALUES (6, 1, 4);
-INSERT INTO `t_role_menus` VALUES (7, 2, 4);
-INSERT INTO `t_role_menus` VALUES (8, 2, 5);
-INSERT INTO `t_role_menus` VALUES (9, 1, 6);
-INSERT INTO `t_role_menus` VALUES (10, 2, 6);
+INSERT INTO `t_role_menus` VALUES (2, 1, 2);
+INSERT INTO `t_role_menus` VALUES (3, 1, 3);
+INSERT INTO `t_role_menus` VALUES (4, 1, 4);
+INSERT INTO `t_role_menus` VALUES (5, 1, 5);
+INSERT INTO `t_role_menus` VALUES (6, 1, 6);
+INSERT INTO `t_role_menus` VALUES (7, 2, 1);
+INSERT INTO `t_role_menus` VALUES (8, 2, 2);
+INSERT INTO `t_role_menus` VALUES (9, 2, 3);
+INSERT INTO `t_role_menus` VALUES (10, 2, 4);
+INSERT INTO `t_role_menus` VALUES (11, 2, 5);
+INSERT INTO `t_role_menus` VALUES (12, 2, 6);
+INSERT INTO `t_role_menus` VALUES (13, 3, 1);
+INSERT INTO `t_role_menus` VALUES (14, 3, 2);
+INSERT INTO `t_role_menus` VALUES (15, 3, 4);
+INSERT INTO `t_role_menus` VALUES (16, 3, 5);
+INSERT INTO `t_role_menus` VALUES (17, 3, 6);
 COMMIT;
 
 -- ----------------------------
@@ -114,8 +115,8 @@ CREATE TABLE `t_user_roles` (
 -- Records of t_user_roles
 -- ----------------------------
 BEGIN;
-INSERT INTO `t_user_roles` VALUES (1, 1, 1);
-INSERT INTO `t_user_roles` VALUES (2, 2, 2);
+INSERT INTO `t_user_roles` VALUES (1, 2, 1);
+INSERT INTO `t_user_roles` VALUES (2, 1, 3);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;
@@ -155,7 +156,7 @@ CREATE TABLE `t_quartz_task_records` (
   `create_time` bigint(13) NOT NULL COMMENT '创建时间',
   `update_time` bigint(13) DEFAULT NULL COMMENT '最近修改时间',
   PRIMARY KEY (`id`),
-  KEY `idx_task_records_taskno` (`taskNo`)
+  KEY `idx_task_records_taskno` (`task_no`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COMMENT='定时任务执行情况记录表';
 
 DROP TABLE IF EXISTS `t_quartz_task_errors`;
