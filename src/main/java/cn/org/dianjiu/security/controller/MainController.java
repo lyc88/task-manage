@@ -24,14 +24,50 @@ public class MainController {
 		mav.addObject("username", username);
 		return mav;
 	}
-	
-	@GetMapping("/home")
-	public String toHome() {
-		return "home";
+
+	/**
+	 * 列表页
+	 * @return
+	 */
+	@GetMapping("/index")
+	public String toIndex() {
+		return "index";
 	}
-	
-	@GetMapping("/error")
-	public String toErrorPage() {
-		return "error/error";
+
+	/**
+	 * 执行记录
+	 * @return
+	 */
+	@GetMapping("/taskrecords")
+	public String toTaskRecords() {
+		return "taskrecords";
 	}
+
+	/**
+	 * 报错日志
+	 * @return
+	 */
+	@GetMapping("/taskerrors")
+	public String toTaskErrors() {
+		return "taskerrors";
+	}
+
+	/**
+	 * 新增任务
+	 * @return
+	 */
+	@GetMapping("/addtask")
+	public String toAddTask() {
+		return "addtask";
+	}
+
+	/**
+	 * 编辑任务
+	 * @return
+	 */
+	@GetMapping("/updatetask")
+	public String toUpdateTask() {
+		return "updatetask";
+	}
+
 }
