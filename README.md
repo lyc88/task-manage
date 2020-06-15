@@ -18,4 +18,4 @@
 ## 部署方式
 1. 执行sql目录下的task_manage.sql文件，建立quartz以及httpjob需要的数据库表  
 2. 修改application.yml中的数据库连接方式
-3. 访问http://localhost:8080/idnex可通过web界面进行定时任务的管理
+3. 访问 http://localhost:8080/idnex 可通过web界面进行定时任务的管理
