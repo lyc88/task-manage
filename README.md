@@ -4,9 +4,12 @@
 
 ## 技术选型
 - springboot 2.3.1
-- httpclient 
-- quartz 
-- hikari 官方推荐连接池
+- SpringSecurity 2.3.1
+- httpclient 4.5.12
+- commons-lang3 3.10
+- quartz 2.3.2
+- druid 1.1.22
+- fastjson 1.2.71
 
 ## 项目功能
 1. springboot集成quartz，使用druid连接池 
