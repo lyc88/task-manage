@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.4//EN" 
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.org.dianjiu.security.dao.MenuDao">
-	<resultMap type="cn.org.dianjiu.security.model.Menu" id="menu">
+	<resultMap type="cn.org.dianjiu.security.entity.Menu" id="menu">
 		<id property="id" column="id"/>
 		<result property="menuName" column="menu_name"/>
 		<result property="menuUrl" column="menu_url"/>

@@ -1,7 +1,7 @@
 package cn.org.dianjiu.security.service;
 
 
-import cn.org.dianjiu.security.model.UserEntity;
+import cn.org.dianjiu.security.entity.UserEntity;
 
 public interface UserService {
 	/**

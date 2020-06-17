@@ -1,7 +1,7 @@
 package cn.org.dianjiu.security.service.impl;
 
 import cn.org.dianjiu.security.dao.UserDao;
-import cn.org.dianjiu.security.model.UserEntity;
+import cn.org.dianjiu.security.entity.UserEntity;
 import cn.org.dianjiu.security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

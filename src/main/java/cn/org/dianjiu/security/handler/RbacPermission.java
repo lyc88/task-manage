@@ -1,7 +1,7 @@
 package cn.org.dianjiu.security.handler;
 
-import cn.org.dianjiu.security.model.Menu;
-import cn.org.dianjiu.security.model.UserEntity;
+import cn.org.dianjiu.security.entity.Menu;
+import cn.org.dianjiu.security.entity.UserEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;

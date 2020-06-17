@@ -1,6 +1,6 @@
 package cn.org.dianjiu.security.dao;
 
-import cn.org.dianjiu.security.model.Role;
+import cn.org.dianjiu.security.entity.Role;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

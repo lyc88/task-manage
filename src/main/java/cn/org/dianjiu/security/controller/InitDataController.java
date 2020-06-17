@@ -1,6 +1,6 @@
 package cn.org.dianjiu.security.controller;
 
-import cn.org.dianjiu.security.model.UserEntity;
+import cn.org.dianjiu.security.entity.UserEntity;
 import cn.org.dianjiu.security.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

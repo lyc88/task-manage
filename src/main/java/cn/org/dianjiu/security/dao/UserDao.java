@@ -1,6 +1,6 @@
 package cn.org.dianjiu.security.dao;
 
-import cn.org.dianjiu.security.model.UserEntity;
+import cn.org.dianjiu.security.entity.UserEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

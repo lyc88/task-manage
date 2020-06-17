@@ -1,7 +1,7 @@
 package cn.org.dianjiu.security.dao;
 
-import cn.org.dianjiu.security.model.Menu;
-import cn.org.dianjiu.security.model.Role;
+import cn.org.dianjiu.security.entity.Menu;
+import cn.org.dianjiu.security.entity.Role;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
