@@ -1,9 +1,8 @@
 package cn.org.dianjiu.security.job;
 
-import com.example.quartz.constants.Constant;
-import com.example.quartz.entity.HttpJobLogs;
-import com.example.quartz.mapper.HttpJobLogsMapper;
-import com.example.quartz.util.HttpClientUtil;
+
+import cn.org.dianjiu.security.entity.HttpJobLogs;
+import cn.org.dianjiu.security.util.HttpClientUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.quartz.DisallowConcurrentExecution;
