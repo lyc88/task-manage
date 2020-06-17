@@ -1,8 +1,8 @@
-package cn.org.dianjiu.security.job;
+package cn.org.dianjiu.security.common.task;
 
 
 import cn.org.dianjiu.security.entity.HttpJobLogs;
-import cn.org.dianjiu.security.util.HttpClientUtil;
+import cn.org.dianjiu.security.common.util.HttpClientUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.quartz.DisallowConcurrentExecution;
@@ -14,7 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Map;
 
 @DisallowConcurrentExecution
-public class HttpPostJsonJob implements Job {
+public class HttpPostJsonTask implements Job {
 
     private static final Logger logger = LogManager.getLogger(HttpPostJsonJob.class);
 

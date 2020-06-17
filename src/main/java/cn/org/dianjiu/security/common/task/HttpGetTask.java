@@ -1,9 +1,9 @@
-package cn.org.dianjiu.security.job;
+package cn.org.dianjiu.security.common.task;
 
-import com.example.quartz.constants.Constant;
-import com.example.quartz.entity.HttpJobLogs;
-import com.example.quartz.mapper.HttpJobLogsMapper;
-import com.example.quartz.util.HttpClientUtil;
+
+import cn.org.dianjiu.security.common.util.HttpClientUtil;
+import cn.org.dianjiu.security.dao.TTaskRecordsDao;
+import cn.org.dianjiu.security.entity.HttpJobLogs;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.quartz.DisallowConcurrentExecution;
@@ -15,16 +15,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.Map;
 
 @DisallowConcurrentExecution
-public class HttpPostFormDataJob implements Job {
+public class HttpGetTask implements Job {
 
-    private static final Logger logger = LogManager.getLogger(HttpPostJsonJob.class);
+    private static final Logger logger = LogManager.getLogger(HttpGetTask.class);
 
     @Autowired
-    private HttpJobLogsMapper httpJobLogsMapper;
+    private TTaskRecordsDao tTaskRecordsDao;
 
     @Override
-    public void execute(JobExecutionContext jobExecutionContext) {
-        JobDetail jobDetail = jobExecutionContext.getJobDetail();
+    public void execute(JobExecutionContext context) {
+        JobDetail jobDetail = context.getJobDetail();
+        String jobName = jobDetail.getKey().
         String jobName = jobDetail.getKey().getName();
         String jobGroup = jobDetail.getKey().getGroup();
 
@@ -32,18 +33,18 @@ public class HttpPostFormDataJob implements Job {
 
         String requestType = (String) jobParamsMap.get(Constant.REQUEST_TYPE);
         String url = (String) jobParamsMap.get(Constant.URL);
-        Map<String, Object> formDataParamMap = (Map) jobParamsMap.get(Constant.PARAMS);
+        Map<String, Object> paramMap = (Map) jobParamsMap.get(Constant.PARAMS);
 
         HttpJobLogs httpJobLogs = new HttpJobLogs();
         httpJobLogs.setJobName(jobName);
         httpJobLogs.setJobGroup(jobGroup);
         httpJobLogs.setRequestType(requestType);
         httpJobLogs.setHttpUrl(url);
-        if (null != formDataParamMap && formDataParamMap.size() > 0) {
-            httpJobLogs.setHttpParams(formDataParamMap.toString());
+        if (null != paramMap && paramMap.size() > 0) {
+            httpJobLogs.setHttpParams(paramMap.toString());
         }
 
-        String result = HttpClientUtil.postFormData(url, formDataParamMap);
+        String result = HttpClientUtil.getMap(url, paramMap);
         httpJobLogs.setResult(result);
 
         logger.info("Success in execute [{}_{}]", jobName, jobGroup);

@@ -1,4 +1,4 @@
-package cn.org.dianjiu.security.handler;
+package cn.org.dianjiu.security.common.handler;
 
 import cn.org.dianjiu.security.entity.Menu;
 import cn.org.dianjiu.security.entity.UserEntity;
@@ -11,7 +11,7 @@ import java.util.List;
 
 /**
  * RBAC数据模型控制权限
- * @author charlie
+ * @author DianJiu
  *
  */
 @Component("rbacPermission")

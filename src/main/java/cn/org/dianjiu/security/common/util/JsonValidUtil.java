@@ -1,11 +1,11 @@
-package cn.org.dianjiu.security.util;
+package cn.org.dianjiu.security.common.util;
 
 import com.alibaba.fastjson.JSONObject;
 
 /**
  * JSON校验工具类
  *
- * @author hellofly
+ * @author DianJiu
  * @date 2019/4/9
  */
 public class JsonValidUtil {

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 /**
  * 登录/退出相关
- * @author charlie
+ * @author DianJiu
  *
  */
 @Controller

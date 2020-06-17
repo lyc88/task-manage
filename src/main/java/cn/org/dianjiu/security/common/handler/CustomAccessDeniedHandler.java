@@ -1,4 +1,4 @@
-package cn.org.dianjiu.security.handler;
+package cn.org.dianjiu.security.common.handler;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,7 +17,6 @@ import java.io.PrintWriter;
 /**
  * 没有权限请求跳转403
  * @author dianjiu
- *
  */
 @Component
 public class CustomAccessDeniedHandler implements AccessDeniedHandler {

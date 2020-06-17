@@ -1,8 +1,7 @@
-package cn.org.dianjiu.security.job;
+package cn.org.dianjiu.security.common.task;
 
 import org.quartz.*;
 
-import java.io.Serializable;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -13,22 +12,21 @@ import java.lang.reflect.Method;
  * @DisallowConcurrentExecution 保证上一个任务执行完后，再去执行下一个任务，这里的任务是同一个任务
  */
 @DisallowConcurrentExecution
-public class ChickenJob implements  Job,Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class EntityMethodTask implements  Job{
 
     @Override
     public void execute(JobExecutionContext context){
         JobDetail jobDetail = context.getJobDetail();
         JobDataMap dataMap = jobDetail.getJobDataMap();
         /**
-         * 获    取任务中保存的方法名字，动态调用方法
+         * 获取任务中保存的方法名字，动态调用方法
+         * 若请求方式为local的话，sendUrl为方法名
          */
-        String methodName = dataMap.getString("jobMethodName");
+        String methodName = dataMap.getString("sendUrl");
         try {
-            com.itstyle.quartz.job.ChickenJob job = new com.itstyle.quartz.job.ChickenJob();
-            Method method = job.getClass().getMethod(methodName);
-            method.invoke(job);
+            EntityMethodTask entityMethodTask = new EntityMethodTask();
+            Method method = entityMethodTask.getClass().getMethod(methodName);
+            method.invoke(entityMethodTask);
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {

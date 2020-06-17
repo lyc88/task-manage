@@ -1,4 +1,4 @@
-package cn.org.dianjiu.security.util;
+package cn.org.dianjiu.security.common.util;
 
 import org.apache.commons.codec.Charsets;
 import org.apache.commons.lang3.StringUtils;
@@ -26,7 +26,7 @@ import java.util.Map.Entry;
 /**
  * Httpclient请求工具类
  *
- * @author hellofly
+ * @author DianJiu
  * @date 2019/4/9
  */
 public class HttpClientUtil {
